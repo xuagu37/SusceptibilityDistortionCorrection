@@ -1,6 +1,6 @@
 # SusceptibilityDistortionCorrection
 
-0. Install the six distortion correction tools  \\
+0. Install the six distortion correction tools  
 Anima (aDC and aBMDC)   
 https://github.com/Inria-Visages/Anima-Public  
 TORTOISE (DR-BUDDI)  
