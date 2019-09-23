@@ -4,10 +4,10 @@
 Anima  
 https://github.com/Inria-Visages/Anima-Public  
 TORTOISE  
-https://tortoise.nibib.nih.gov/
+https://tortoise.nibib.nih.gov/  
 EPIC  
 https://github.com/ivartz/epi_corrections/tree/master/epic_src  
-HySCO
+HySCO  
 http://www.diffusiontools.com/index.html  
 FSL  
 https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation  
