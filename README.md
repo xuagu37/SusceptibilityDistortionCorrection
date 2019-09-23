@@ -1,15 +1,15 @@
 # SusceptibilityDistortionCorrection
 
-0. Install  
-Anima  
+0. Install the six distortion correction tools  
+Anima (aDC and aBMDC)   
 https://github.com/Inria-Visages/Anima-Public  
-TORTOISE  
+TORTOISE (DR-BUDDI)  
 https://tortoise.nibib.nih.gov/  
 EPIC  
 https://github.com/ivartz/epi_corrections/tree/master/epic_src  
 HySCO  
 http://www.diffusiontools.com/index.html  
-FSL  
+FSL (TOPUP)  
 https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation  
 
 1. Download test data  
