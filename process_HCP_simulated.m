@@ -55,9 +55,7 @@ applyaBMDC(dwi_AP_dir, dwi_PA_dir, aBMDC_results_dir);
 
 DRBUDDI_results_dir = [test_data_dir, 'DRBUDDI/'];
 
-T2_dir = [test_data_dir, 'T2_brain.nii.gz'];
-DRBUDDI(b0_LR_dir, b0_RL_dir, T2_dir, '', '', DRBUDDI_results_dir);
-DRBUDDI(b0_AP_dir, b0_PA_dir, T2_dir, '', '', DRBUDDI_results_dir);
+T2_dir = [test_data_dir, 'T2.nii.gz'];
 DRBUDDI(dwi_LR_dir, dwi_RL_dir, T2_dir, bvals_dir, bvecs_dir, DRBUDDI_results_dir);
 DRBUDDI(dwi_AP_dir, dwi_PA_dir, T2_dir, bvals_dir, bvecs_dir, DRBUDDI_results_dir);
 
