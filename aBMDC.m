@@ -10,16 +10,16 @@ if (contains(pe1, 'LR') || contains(pe2, 'LR'))
     
     correction_field_dir = [results_dir, filename, '_LRRL_aBMDC_correction_field.nii.gz'];
     average_corrected_dir = [results_dir, filename, '_LRRL_aBMDC_corrected.nii.gz'];
-    system(['animaBMDistortionCorrection -d 0 -f ', pe1_dir, ' -b ', pe2_dir, ' -i ', init_correction_field_dir, ' -o ', average_corrected_dir, ' -O ', correction_field_dir]);
-%     system(['animaBMDistortionCorrection -d 0 -f ', pe1_dir, ' -b ', pe2_dir, ' -o ', average_corrected_dir, ' -O ', correction_field_dir]);
+    system(['animaBMDistortionCorrection -s 5 -d 0 -f ', pe1_dir, ' -b ', pe2_dir, ' -i ', init_correction_field_dir, ' -o ', average_corrected_dir, ' -O ', correction_field_dir]);
+%     system(['animaBMDistortionCorrection -s 10 -d 0 -f ', pe1_dir, ' -b ', pe2_dir, ' -o ', average_corrected_dir, ' -O ', correction_field_dir]);
     
     
 elseif (contains(pe1, 'AP') || contains(pe2, 'AP'))
     
     correction_field_dir = [results_dir, filename, '_APPA_aBMDC_correction_field.nii.gz'];
     average_corrected_dir = [results_dir, filename, '_APPA_aBMDC_corrected.nii.gz'];    
-    system(['animaBMDistortionCorrection -d 1 -f ', pe1_dir, ' -b ', pe2_dir, ' -i ', init_correction_field_dir, ' -o ', average_corrected_dir, ' -O ', correction_field_dir]);
-%     system(['animaBMDistortionCorrection -d 1 -f ', pe1_dir, ' -b ', pe2_dir, ' -o ', average_corrected_dir, ' -O ', correction_field_dir]);
+    system(['animaBMDistortionCorrection -s 5 -d 1 -f ', pe1_dir, ' -b ', pe2_dir, ' -i ', init_correction_field_dir, ' -o ', average_corrected_dir, ' -O ', correction_field_dir]);
+%     system(['animaBMDistortionCorrection -s 10 -d 1 -f ', pe1_dir, ' -b ', pe2_dir, ' -o ', average_corrected_dir, ' -O ', correction_field_dir]);
     
 end
 
