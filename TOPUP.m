@@ -24,7 +24,7 @@ end
 
 system(['fslmerge -t ', pe1pe2_dir, ' ', pe1_dir, ' ', pe2_dir]);
 
-% Stupid TOPUP only works for even size
+% TOPUP only works for even size
 [~, dim1] = system(['fslval ', pe1pe2_dir, ' dim1']);
 dim1 = str2num(dim1);
 [~, dim2] = system(['fslval ', pe1pe2_dir, ' dim2']);
