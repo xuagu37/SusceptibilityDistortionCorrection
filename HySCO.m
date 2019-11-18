@@ -9,13 +9,14 @@ pe2_corrected_dir = [results_dir, filename,'_',pe2, '_HySCO_corrected.nii.gz'];
 pe1_new_dir = [results_dir, filename,'_',pe1, '.nii'];
 pe2_new_dir = [results_dir, filename,'_',pe2, '.nii'];
 
+
 if (contains(pe1, 'LR') || contains(pe2, 'LR'))
     
-    line_5 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.perm_dim = 1;';
+    A{1} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.perm_dim = 1;';
 
 elseif (contains(pe1, 'AP') || contains(pe2, 'AP'))
 
-    line_5 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.perm_dim = 2;';
+    A{1} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.perm_dim = 2;';
 
 end
 
@@ -27,33 +28,28 @@ system(['gunzip -f ' results_dir, filename,'_',pe1, '.nii.gz']);
 system(['gunzip -f ' results_dir, filename,'_',pe2, '.nii.gz']);
 
 
-line_1 = ['matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.source_up = {''', pe2_new_dir, ',1''};'];
-line_2 = ['matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.source_dw = {''', pe1_new_dir, ',1''};'];
-line_3 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.others_up = {''''};';
-line_4 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.others_dw = {''''};';
-line_6 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.dummy_fast = 1;';
-line_7 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.dummy_ecc = 0;';
-line_8 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.alpha = 50;';
-line_9 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.beta = 10;';
-line_10 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.dummy_3dor4d = 0;';
-line_11 = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.restrictdim = [1, 1, 1];';
+A{2} = ['matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.source_up = {''', pe2_new_dir, ',1''};'];
+A{3} = ['matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.source_dw = {''', pe1_new_dir, ',1''};'];
+A{4} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.dummy_fast = 1;';
+A{5} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.dummy_ecc = 0;';
+A{6} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.alpha = 50;';
+A{7} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.beta = 10;';
+A{8} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.dummy_3dor4d = 0;';
+A{9} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.restrictdim = [1, 1, 1];';
+A{10} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.others_up = {''''};';
+A{11} = 'matlabbatch{1}.spm.tools.dti.prepro_choice.hysco_choice.hysco2.others_dw = {''''};';
 
-fileID = fopen([results_dir, 'HySCO_job.m'],'w');
-fprintf(fileID,'%s \n',line_1);
-fprintf(fileID,'%s \n',line_2);
-fprintf(fileID,'%s \n',line_3);
-fprintf(fileID,'%s \n',line_4);
-fprintf(fileID,'%s \n',line_5);
-fprintf(fileID,'%s \n',line_6);
-fprintf(fileID,'%s \n',line_7);
-fprintf(fileID,'%s \n',line_8);
-fprintf(fileID,'%s \n',line_9);
-fprintf(fileID,'%s \n',line_10);
-fprintf(fileID,'%s \n',line_11);
-fclose(fileID);
+% Write cell A into txt
+fid = fopen([results_dir, 'HySCO_job1.m'], 'w');
+for i = 1:numel(A)
+fprintf(fid,'%s\n', A{i});
+end
+fclose(fid);
+
+
 
 nrun = 1; % enter the number of runs here
-jobfile = {[results_dir, 'HySCO_job.m']};
+jobfile = {[results_dir, 'HySCO_job1.m']};
 jobs = repmat(jobfile, 1, nrun);
 inputs = cell(0, nrun);
 for crun = 1:nrun
@@ -69,8 +65,6 @@ system(['gzip ', temp2_dir]);
 system(['mv ', temp1_dir, '.gz ', pe1_corrected_dir]);
 system(['mv ', temp2_dir, '.gz ', pe2_corrected_dir]);
 
-system(['fslmaths ', pe1_corrected_dir, ' -add ', pe2_corrected_dir, ' ', average_corrected_dir]);
-system(['fslmaths ' average_corrected_dir, ' -div 2 ', average_corrected_dir]);
 
 
 
