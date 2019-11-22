@@ -1,5 +1,6 @@
-# Evaluation of six phase encoding based susceptibility distortion correction methods for diffusion MRI
+# Susceptibility Distortion Correction
 
+## Evaluation of six phase encoding based susceptibility distortion correction methods for diffusion MRI  
 0. Install the six distortion correction tools  
 Anima (aDC and aBMDC)   
 https://github.com/Inria-Visages/Anima-Public  
