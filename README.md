@@ -1,4 +1,4 @@
-# We share the processing scripts for our paper [Evaluation of six phase encoding based susceptibility distortion correction methods for diffusion MRI] (https://www.biorxiv.org/content/10.1101/766139v3)  
+# Evaluation of six phase encoding based susceptibility distortion correction methods for diffusion MRI
 
 0. Install the six distortion correction tools  
 Anima (aDC and aBMDC)   
