@@ -1,6 +1,6 @@
 # Susceptibility Distortion Correction
 
-We share the scripts for our paper 
+We share the scripts for our paper  
 Evaluation of six phase encoding based susceptibility distortion correction methods for diffusion MRI  
 https://www.biorxiv.org/content/10.1101/766139v3  
 
