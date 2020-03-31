@@ -17,7 +17,7 @@ FSL (TOPUP)
 https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation  
 
 1. Download test data  
-https://www.dropbox.com/sh/i0osbas6g7b6sbl/AAAQMSXJEMxImriLBtCRSk65a?dl=0  
-  
+https://drive.google.com/open?id=1-kUxOhHjImCYpsS_ynu3CftmQSsW8vA4
+
 2. Run 
 process_HCP_simulated.m
